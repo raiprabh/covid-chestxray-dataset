@@ -2,7 +2,7 @@ import numpy as np;
 import os;
 from skimage import io, color, util, transform, img_as_ubyte;
 
-source_dir = '/Users/prabhjotrai/raiprabh/covid-chestxray-dataset/dataset/source';
+source_dir = '/home/jusun/shared/kaggle_pneumonia/chest_xray/train/PNEUMONIA';
 destination_dir = '/Users/prabhjotrai/raiprabh/covid-chestxray-dataset/dataset/destination';
 
 target_height = 256;
@@ -69,18 +69,22 @@ for _,_,files in os.walk(destination_dir):
 				pad_right = int(total_pad_width - pad_left);
 
 				new_image_processed = util.pad(new_image, ((0, 0), (pad_left,pad_right)), 'constant', constant_values=(0, 0));
+				height, width = new_image_processed.shape
+				assert height == target_height
+				assert width == target_width
 				print(new_image_processed.shape)
 				io.imsave(new_img_path, img_as_ubyte(new_image_processed));
 			else:
 				rescale_factor = target_width / new_width
 				image_processed = transform.rescale(new_image, (rescale_factor, rescale_factor));
 				processed_height, processed_width = image_processed.shape
-				assert processed_width == target_width
-				assert processed_height < target_height
 				total_pad_height = target_height - processed_height
 				pad_top = int(np.ceil(total_pad_height/2));
 				pad_bottom = int(total_pad_height - pad_top);
 				new_image_processed = util.pad(image_processed, ((pad_top, pad_bottom), (0, 0)), 'constant', constant_values=(0, 0));
+				height, width = new_image_processed.shape
+				assert height == target_height
+				assert width == target_width
 				print(new_image_processed.shape)
 				io.imsave(new_img_path, img_as_ubyte(new_image_processed));
 
