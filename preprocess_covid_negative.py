@@ -1,14 +1,15 @@
 import numpy as np;
 import os;
 from skimage import io, color, util, transform, img_as_ubyte;
+import pydicom;
 
-source_dir = '/home/jusun/shared/kaggle_pneumonia/chest_xray/train/PNEUMONIA';
-destination_dir = '/Users/prabhjotrai/raiprabh/covid-chestxray-dataset/dataset/destination';
+source_dir = './dataset/source';
+destination_dir = './dataset/destination';
 
 target_height = 256;
 target_width = 362;
 
-count =0;
+count = 0;
 
 max_new_width = 0;
 
@@ -16,7 +17,7 @@ for _,_,files in os.walk(source_dir):
 	for file in files:
 		img_path = os.path.join(source_dir, file);
 
-		image = io.imread(img_path);
+		image = pydicom.dcmread(img_path).pixel_array;
 		image_processed = color.rgb2gray(image);
 		height,width = image_processed.shape;
 
