@@ -2,7 +2,7 @@
 # 🛑 Note: please do not claim diagnostic performance of a model without a clinical study! This is not a kaggle competition dataset. 
 
 
-## COVID-19 image data collection
+## COVID-19 image data collection ([🎬 video about the project](https://www.youtube.com/watch?v=ineWmqfelEQ))
 
 We are building a database of COVID-19 cases with chest X-ray or CT images. We are looking for COVID-19 cases as well as [MERS](https://en.wikipedia.org/wiki/Middle_East_respiratory_syndrome), [SARS](https://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome), and [ARDS](https://en.wikipedia.org/wiki/Acute_respiratory_distress_syndrome). 
 
@@ -46,6 +46,8 @@ COVID19_Dataset num_samples=28 views=['AP Supine']
 
  ```
 
+[Lung Bounding Boxes](annotations/imageannotation_ai_lung_bounding_boxes.json) contributed by Andrew Gough at [ImageAnnotation.AI, Inc.](https://www.imageannotation.ai/covid-19)
+
 ## Contribute
 
  - We can extract images from publications. Help identify publications which are not already included using a GitHub issue (DOIs we have are listed in the metadata file). There is a searchable database of COVID-19 papers [here](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/global-research-on-novel-coronavirus-2019-ncov), and a non-searchable one (requires download) [here](https://pages.semanticscholar.org/coronavirus-research).
@@ -84,9 +86,9 @@ The tasks are as follows using chest X-ray or CT (preference for X-ray) as input
 
 - Healthy vs Pneumonia (prototype already implemented [Chester](https://mlmed.org/tools/xray/) with ~74% AUC, validation study [here](https://arxiv.org/abs/2002.02497))
 
-- Bacterial vs Viral vs COVID-19 Pneumonia
+- ~~Bacterial vs Viral vs COVID-19 Pneumonia~~ (not relevant enough for the clinical workflows)
 
-- Survival of patient
+- Survival/prognosis of patient
 
 
 

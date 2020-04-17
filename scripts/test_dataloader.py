@@ -5,13 +5,14 @@ from tqdm import tqdm
 import sys
 
 d_covid19 = xrv.datasets.COVID19_Dataset(views=["PA", "AP", "AP Supine"],
-                                         imgpath="./images",
-                                         csvpath="./metadata.csv")
+                                         imgpath="../images",
+                                         csvpath="../metadata.csv")
 print(d_covid19)
 
 for i in tqdm(range(len(d_covid19))):
     try:
-        a = d_covid19[i]
+        # start from the most recent
+        a = d_covid19[len(d_covid19)-i-1]
     except KeyboardInterrupt:
         break;
     except:
