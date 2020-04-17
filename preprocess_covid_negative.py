@@ -3,8 +3,8 @@ import os;
 from skimage import io, color, util, transform, img_as_ubyte;
 import pydicom;
 
-source_dir = './dataset/source';
-destination_dir = './dataset/destination';
+source_dir = '/home/jusun/shared/kaggle_pneumonia/stage_2_test_images';
+destination_dir = '/home/jusun/shared/kaggle_pneumonia/stage_2_processed/test_images';
 
 target_height = 256;
 target_width = 362;
