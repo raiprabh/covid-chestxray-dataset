@@ -1,4 +1,8 @@
 .DS_Store
 volumes
 scripts
+.ipynb_checkpoints/*
 scripts/.ipynb_checkpoints/*
+
+# positive labels
+./positive
