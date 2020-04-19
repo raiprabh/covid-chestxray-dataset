@@ -5,4 +5,4 @@ scripts
 scripts/.ipynb_checkpoints/*
 
 # positive labels
-./positive
+./positive/
